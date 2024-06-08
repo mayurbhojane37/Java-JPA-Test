@@ -69,12 +69,20 @@ public class App
 	}
 	case 3:
 	{
+		em.getTransaction().begin();
+		
+		Library l1=em.find(Library.class, 101);
+		em.persist(l1);
 		System.out.println("Data Deleted");
 		break;
 	}
 	case 4:
 	{
-		System.out.println("Data");
+		em.getTransaction().begin();
+		Library l1 = em.find(Library.class, 101);
+        System.out.println(l1);
+		System.out.println("Data Displayed");
+		em.getTransaction().commit();
 		break;
 	}
 	case 5:
